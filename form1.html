@@ -19,6 +19,9 @@
             <span></span>
             Email-Id: <input type="email" name="email" placeholder="Eg. raj@christuniversity.in">
             <span></span>
+            Uname: <input type="text" name="uname" placeholder="RajZeus">
+            <span></span>
+            DOB <input type="date" name="date">
             <input type="submit" value="register">
         </form>
     </div>
@@ -30,8 +33,9 @@
             var phno=document.myform.phno.value;
             var password=document.myform.password.value;
             var email=document.getElementsByName('email');
+            var uname=document.getElementsByName('uname');
             var span=document.getElementsByTagName('span');
-
+            
             if(name==null||name=="")
                 {
                     alert("Name can't be blank")
@@ -48,9 +52,9 @@
                     alert("Phone Number must be of 10 digits only");
                     return false;
                 }
-            if(password.length<8)
+            if(password.length<8 && !password.value.match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!/|@$%^&*-]).{8,}$/))
                 {
-                    alert("Password must be of at least 8 characters long");
+                    alert("Password must be of at least 8 characters long and must have atleast 1 small and capital letter");
                     return false;
                 }
 
@@ -63,6 +67,11 @@
                         span[0].innerText="Invalid Email Id";
                         span[0].style.color="red";
                         }
+                }
+            if(uname==null)
+                {
+                    alert("User Name can't be blank")
+                    return false;
                 }
         }
 </script>
